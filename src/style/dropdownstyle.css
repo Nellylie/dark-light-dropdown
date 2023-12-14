@@ -1,0 +1,45 @@
+.selector-container {
+    position: relative;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.selector-value {
+  
+    display:flex;
+    justify-content: space-between;
+    flex-direction:row;
+    width: 95%;
+
+    padding: 8px;
+}
+
+.selector-option {
+    padding: 8px 12px;
+    display: block;
+}
+
+.selector-option:hover, .selector-option.selected {
+    background-color: var(--hover-background-color);
+}
+
+.selector-light {
+    --border-color: #ccc;
+    --background-color: #fff;
+    --text-color: #333;
+    --hover-background-color: #f0f0f0;
+}
+
+.selector-dark {
+    --border-color: #444;
+    --background-color: #333;
+    --text-color: #fff;
+    --hover-background-color: #555;
+}
+
+.selector-option:hover, .selector-option.selected {
+    background-color: var(--hover-background-color);
+}
