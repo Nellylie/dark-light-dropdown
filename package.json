@@ -1,6 +1,6 @@
 {
   "name": "dark-light-dropdown",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "a dropdown with dark or light theme",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
