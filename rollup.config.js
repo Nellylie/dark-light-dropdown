@@ -1,10 +1,10 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
-import autoprefixer from 'autoprefixer';
-import url from 'rollup-plugin-url';
 import svgr from '@svgr/rollup';
 import postcss from 'rollup-plugin-postcss';
+import { terser } from 'rollup-plugin-terser';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 
 const packageJson = require('./package.json');
 
@@ -12,38 +12,28 @@ export default {
   input: 'src/index.jsx',
   output: [
     {
-      file: "dist/index.js", 
-      format: "cjs",
+      file: packageJson.main,
+      format: 'cjs',
       sourcemap: true,
       exports: 'auto'
-
     },
     {
-      file: "dist/index.es.js", 
-      format: "es",
-      sourcemap: true,
-    }],
-
-    external: ['react', 'react-dom']
-,      
+      file: packageJson.module,
+      format: 'es',
+      sourcemap: true
+    }
+  ],
+  external: Object.keys(packageJson.peerDependencies || {}),
   plugins: [
+    peerDepsExternal(),
     resolve(),
     commonjs(),
     babel({
-      exclude: 'node_modules/**',
+      exclude: /node_modules/,
       babelHelpers: 'bundled'
     }),
-    postcss({
-      plugins: [autoprefixer()],
-      extract: true
-    }),
-    url({
-      limit: 10 * 1024, 
-      include: ["**/*.svg", "**/*.png", "**/*.jpg", "**/*.gif"], 
-      emitFiles: true, 
-      fileName: "[dirname][name][extname]",
-      destDir: "dist/assets",
-    }), 
-    svgr(), 
+    postcss(),
+    svgr(),
+    terser()
   ]
 };
