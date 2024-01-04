@@ -1,6 +1,6 @@
 {
   "name": "dark-light-dropdown",
-  "version": "0.1.6",
+  "version": "0.2.6",
   "description": "a dropdown with dark or light theme",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
@@ -35,7 +35,9 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.33.2",
     "postcss": "^8.4.32",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-url": "^3.0.1"
   },
   "dependencies": {
     "@rollup/plugin-babel": "^6.0.4",
