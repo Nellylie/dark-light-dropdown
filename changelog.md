@@ -1,4 +1,9 @@
 # Changelog
+
+## Version [0.3.0] - [01-8-2023]
+### Added
+- autoclose dropdown when click outside + style
+
 ## Version [0.2.5] - [01-4-2023]
 ### Fixed
 - Display svg + style
