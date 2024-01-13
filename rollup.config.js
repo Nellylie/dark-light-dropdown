@@ -9,21 +9,27 @@ import url from 'rollup-plugin-url';
 const packageJson = require('./package.json');
 
 export default {
+  // Entry point for the bundle
   input: 'src/index.jsx',
+
+  // Output configuration for different formats
   output: [
     {
-      file: packageJson.main,
-      format: 'cjs',
+      file: packageJson.main, // File path for CommonJS output
+      format: 'cjs', 
       sourcemap: true,
       exports: 'auto'
     },
     {
-      file: packageJson.module,
+      file: packageJson.module, // File path for ES module output
       format: 'es',
       sourcemap: true
     }
   ],
+  // Exclude peer dependencies from the bundle
   external: Object.keys(packageJson.peerDependencies || {}),
+  
+  // Plugins used in the build process
   plugins: [
     peerDepsExternal(),
     resolve(),
