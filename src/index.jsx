@@ -8,7 +8,7 @@ import './style/dropdownstyle.css';
 // Props include label, name, id, options array, onChange handler, and theme ('light' or 'dark').
 function DropDown({ label, name, id, options, onChange, theme }) {
     // State for the selected value, open status of dropdown, and ref for the dropdown
-    const [value, setValue] = useState(options.length > 0 ? (options[0].abbreviation || options[0]) : '');
+    const [value, setValue] = useState(options.length > 0 ? (options[0]?.abbreviation || options[0]) : '');
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -33,7 +33,7 @@ function DropDown({ label, name, id, options, onChange, theme }) {
 
     // Updates value when options change
     useEffect(() => {
-        setValue(options.length > 0 ? (options[0].name || options[0]) : '');
+        setValue(options.length > 0 ? (options[0]?.abbreviation || options[0]) : '');
     }, [options]);
 
     // Toggles dropdown open/close
@@ -43,10 +43,10 @@ function DropDown({ label, name, id, options, onChange, theme }) {
 
     // Handles option selection and triggers onChange
     const handleChange = (optionValue) => {
-        setValue(optionValue);
+        setValue(optionValue?.abbreviation || optionValue);
         setIsOpen(false);
         if (onChange) {
-            onChange({ target: { name, value: optionValue } });
+            onChange({ target: { name, value: (optionValue?.name || optionValue) } });
         }
     };
 
@@ -57,7 +57,7 @@ function DropDown({ label, name, id, options, onChange, theme }) {
             role="option"
             aria-selected={value === option}
             className={`selector-option ${value === option ? 'selected' : ''}`}
-            onClick={() => handleChange(option.name || option)}
+            onClick={() => handleChange(option)}
         >
             {option.name || option}
         </div>
