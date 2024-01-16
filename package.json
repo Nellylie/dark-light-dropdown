@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rollup -c"
   },
-  "author": "",
+  "author": "Nellylie",
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.0.0",

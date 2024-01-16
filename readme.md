@@ -1,5 +1,7 @@
 
 # Composant DropDown
+Pour React version ^18.0.0
+recquiert nodeJS version ^18
 
 Un composant dropdown permettant de selectionner un élement dans une liste d'objets ou une liste de chaines de caractères pour les applications React, avec la possibilité de choisir entre un thème clair ou sombre.
 
@@ -83,3 +85,6 @@ Le composant repose sur `dropdownstyle.css` pour le style. Assurez-vous d'import
 ## Licence
 
 Ce projet est sous licence ISC.
+
+## Auteur
+© Nellylie
